@@ -1,36 +1,52 @@
 <template>
   <el-container>
-    <el-header style="padding: 0">
+    <el-header style="padding: 0;height:auto ">
 
     <el-row style="width: 100vw">
       <el-col :span="24">
-        <img src="../assets/Website_Banner_Preview.png" style="width: 100%" alt="">
+        <img :src="agent==='pc'?'static/Website_Banner_Preview.png':'static/Mobile_Banner_Preview.png'" @click="jump('http://cloud-open.cn/yunzhuji/qytx.html')" style="width: 100%;cursor: pointer" alt="">
       </el-col>
     </el-row>
     </el-header>
 
-    <el-main>
+    <el-main v-if="agent==='pc'" style="padding:0;">
+      <el-row style="width: 75%;margin: 0 auto">
+        <main-head></main-head>
 
+
+        <table-body></table-body>
+      </el-row>
+    </el-main>
+    <el-main v-if="agent!=='pc'" style="padding:0 4.3%;">
+      <el-row style="width: 100%;margin: 0 auto;">
+        <main-head></main-head>
+
+
+        <table-body></table-body>
+      </el-row>
     </el-main>
 
   </el-container>
 </template>
 
 <script>
+  import Header from "./headEr";
+  import TableBody from "./tableBody";
+
   export default {
-    name: 'HelloWorld',
+    components: {
+      TableBody,
+      mainHead:Header},
     data () {
       return {
-        msg: 'Welcome to Your Vue.js App'
       }
-    }
+    },
+    name: 'HelloWorld',
+
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-  .main-container{
-    flex: 1200px 0 1;
-  }
 </style>

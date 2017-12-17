@@ -4,9 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
+import mixin from './Mixin'
 import 'element-ui/lib/theme-chalk/index.css'
-
+import 'element-ui/lib/theme-chalk/display.css';
 Vue.use(ElementUI)
+Vue.mixin(mixin)
 
 Vue.config.productionTip = false
 

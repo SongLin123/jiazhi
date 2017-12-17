@@ -6,7 +6,15 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  created(){
+    let user=navigator.userAgent.toLowerCase();
+    if (user.indexOf('android')>0||user.indexOf('iphone')>0){
+      localStorage.setItem('agent','phone')
+      return
+    }
+    localStorage.setItem('agent','pc')
+  }
 }
 </script>
 
