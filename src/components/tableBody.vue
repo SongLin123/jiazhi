@@ -1,13 +1,13 @@
 <template>
   <div class="table-cont">
-    <el-row class="table-item hidden-sm-and-down" v-for="(table,index) in tableData" :key="index">
+    <el-row class="table-item hidden-sm-and-down" v-for="(table,index) in tableData" :key="'id'+index">
       <el-col :span="4" class="desCont">
         <div class="word" :style="[{'background':table.describe.color,'font-size':table.describe.fontSize}]"
         v-html="table.describe.word"
         >
         </div>
-        <div class="logo">
-          <img src="" @click="jump(table.describe.href)" alt="" style="width: 100%;height: 110px;display: inline-block;cursor: pointer">
+        <div class="logo" style="margin: 5px 0">
+          <img :src="table.describe.logo" @click="jump(table.describe.href)" alt="" style="width: 100%;display: inline-block;cursor: pointer">
         </div>
         <div class="more"> <span @click="jump(table.describe.href)">点击了解详情</span></div>
       </el-col>
@@ -78,14 +78,14 @@
         </el-col>
       </el-col>
     </el-row>
-    <el-row class="mobile-table-item hidden-sm-and-up" v-for="(table,index) in tableData" :key="index">
+    <el-row class="mobile-table-item hidden-sm-and-up" v-for="(table,index) in tableData" :key="'id'+index">
 
       <el-col :span="24">
-          <el-col :span="24" class="mobile-title" @click="jump(table.describe.href)">
+          <el-col :span="24" class="mobile-title" @click.native="jump(table.describe.href)">
             <el-col :span="4" style="height: 100%">
-              <img src="" alt="" style="width: 100%;height: 100%">
+              <img :src="table.describe.mlogo" alt="" style="width: 100%;height: 100%">
             </el-col>
-            <el-col :span="4" style="height: 100%" v-html="table.describe.word" :style="[{'background':table.describe.color,'padding-top':'0.5vh','font-size':'8px','line-height':index===0?'9px':'16px','color':'white'}]">
+            <el-col :span="4" style="height: 100%" v-html="table.describe.word" :style="[{'background':table.describe.color,'padding-top':'0.5vh','font-size':'0.55rem','line-height':index===0?'0.6rem':'1rem','color':'white'}]">
 
             </el-col>
             <el-col :span="16" style="height: 100%;color: white;font-size: 14px">
@@ -137,7 +137,7 @@
               class-name="mobile-column-class"
               label="价    格">
               <template slot-scope="scope">
-                <el-col style="font-size: 10px;line-height: 10px;"> <span style="color: RGB(230,0,18)">{{ scope.row.price }}</span><span v-html="scope.row.unit"></span></el-col>
+                <el-col style="font-size: 10px;line-height: 10px;"> <span style="color: RGB(230,0,18)">{{ scope.row.price }}</span><span v-html="scope.row.unit.indexOf('月')>0?scope.row.unit:'元/年'"></span></el-col>
 
               </template>
 
@@ -177,8 +177,9 @@
             describe: {
               word: '销量冠军<br>首月免租',
               color: '#d4d221',
-              fontSize: '16px',
-              logo: '',
+              fontSize: '0.8rem',
+              logo: 'static/02.png',
+              mlogo: 'static/mobile-pic/02.png',
               href:'http://cloud-open.cn/index.php?c=article&a=type&tid=368 '
             },
             title: '中国电信 CHINA TELECOM',
@@ -224,8 +225,9 @@
             describe: {
               word: '首月免租',
               color: 'RGB(230,0,18)',
-              fontSize: '16px',
-              logo: '',
+              fontSize: '0.8rem',
+              logo: 'static/03.png',
+              mlogo: 'static/mobile-pic/03.png',
               href:'http://cloud-open.cn/index.php?c=article&a=type&tid=370 '
             },
             title: '中国联通 CHINA UNICOM',
@@ -264,12 +266,60 @@
               },
             ]
           },
+
+
           {
             describe: {
               word: '首月免租',
               color: 'RGB(230,0,18)',
-              fontSize: '16px',
-              logo: '',
+              fontSize: '0.8rem',
+              logo: 'static/04.png',
+              mlogo: 'static/mobile-pic/04.png',
+              href:'http://cloud-open.cn/index.php?c=article&a=type&tid=370 '
+            },
+            title: '中国移动 CHINA MOBILE',
+            data: [
+              {
+                name: '光网宽带',
+                apply: '商铺、初创企业',
+                config: '20M上下行对称',
+                config2: '动态IP',
+                price: '2980',
+                unit:'元/年'
+              }, {
+                name: '光网宽带',
+                apply: '网页浏览、',
+                apply2: '邮件收发等',
+                config: '50M上下行对称',
+                config2: '动态IP',
+                price: '3980',
+                unit:'元/年'
+              }, {
+                name: '光网宽带',
+                apply: 'OA/ERP/SAP',
+                apply2: '视频会议等场景',
+                config: '100M上下行对称',
+                config2: '动态IP',
+                price: '4980',
+                unit:'元/年'
+              }, {
+                name: 'CMNET',
+                apply: '多IP、大型服务器',
+                apply2: '集群搭建场景',
+                config: '50M上下行对称',
+                config2: '一个固定IP',
+                price: '1500',
+                unit:'元/<span style="color: rgb(234,85,20)"">月</span>'
+              },
+            ]
+          },
+          {
+            describe: {
+              word: '首月免租',
+              color: 'RGB(230,0,18)',
+              fontSize: '0.8rem',
+              logo: 'static/05.png',
+              mlogo: 'static/mobile-pic/05.png',
               href:'http://cloud-open.cn/index.php?c=article&a=type&tid=370 '
             },
             title: '鹏博士宽带 DR.PGROUPENG',
@@ -312,8 +362,9 @@
             describe: {
               word: '首月免租',
               color: 'RGB(230,0,18)',
-              fontSize: '16px',
-              logo: '',
+              fontSize: '0.8rem',
+              logo: 'static/06.png',
+              mlogo: 'static/mobile-pic/06.png',
               href:'http://cloud-open.cn/index.php?c=article&a=type&tid=370 '
             },
             title: '嘉值云光纤 VAS Technology',
@@ -348,7 +399,7 @@
       callRing(){
 
         if (this.agent==='phone'){
-          open('tel:66666666666666666');
+          open('tel:400-663-1663');
           return
         }
         open('https://login.skype.com/login');
@@ -385,16 +436,16 @@
   }
 
   .word {
-    padding: 5px 20px;
+    padding: 5px 0;
     color: white;
   }
   .more{
     font-size: 12px;
     cursor: pointer;
-    color: rgb(218,218,218);
+    color:#595757;
   }
   .more:hover{
-    color: rgb(188,188,188);
+    color: rgb(158,158,158);
   }
   .title{
     height: 30px;

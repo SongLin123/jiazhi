@@ -3,12 +3,14 @@
 
     <!--pc-->
     <div class="main-head hidden-sm-and-down">
-      <div v-for="(item,index) in banner" class="item">
-        <img style="cursor: pointer;"
-             @mousemove="hovering(index+1,$event)" @mouseleave="leaveing(index+1,$event)"
-             @click="index===0?0:jump(item.src)"
-             :src="'static/button/0'+(index+1)+'.png'"
-             alt="">
+      <div v-for="(item,index) in banner" class="item"
+
+           @mousemove="hovering(index+1,$event)" @mouseleave="leaveing(index+1,$event)"
+           @click="index===0?0:jump(item.src)"
+      >
+       <div class="item-button" :class="'id'+index" style="cursor: pointer;">
+
+       </div>
         <span v-if="index+1!==5" class="line"></span>
       </div>
     </div>
@@ -17,11 +19,16 @@
     <!--mobile-->
     <div class="mobile-main-head hidden-sm-and-up">
       <div v-for="(item,index) in banner" class="mobile-item">
-        <img style="cursor: pointer;width: 100%;height: 100%"
-             @mousemove="hovering(index+1,$event)" @mouseleave="leaveing(index+1,$event)"
+        <!--<img style="cursor: pointer;width: 100%;height: 100%"-->
+             <!--@mousemove="hovering(index+1,$event)" @mouseleave="leaveing(index+1,$event)"-->
+             <!--@click="index===0?0:jump(item.src)"-->
+             <!--:src="'static/button/0'+(index+1)+'.png'"-->
+             <!--alt="">-->
+        <div class="mobile-item-button" :class="'id'+index" style="cursor: pointer;"
              @click="index===0?0:jump(item.src)"
-             :src="'static/button/0'+(index+1)+'.png'"
-             alt="">
+        >
+
+        </div>
       </div>
     </div>
 
@@ -129,35 +136,92 @@
 
 
   .head-container {
-    /*height: 240px;*/
+
     width: 100%;
   }
 
   .main-head {
-    height: 175px;
     width: 100%;
     box-sizing: border-box;
-    padding: 30px;
+    padding: 0.6rem;
     display: flex;
   }
   .mobile-main-head {
     height: 18.3vw;
     width: 100%;
     box-sizing: border-box;
-    /*padding: 30px;*/
     display: flex;
   }
 
+  /*noinspection ALL*/
   .item {
     flex: 1;
     position: relative;
-
+    padding: 0 2.3rem;
+    border-radius: 2.3rem;
   }
+  .item-button{
+    height: 5rem;
+  }
+  .mobile-item-button{
+    height: 3rem;
+  }
+  .id0{
+    background: url("/static/button/01.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .id1{
+    background: url("/static/button/02.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .id2{
+    background: url("/static/button/03.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .id3{
+    background: url("/static/button/04.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .id4{
+    background: url("/static/button/05.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .id0:hover{
+    background: url("/static/button/06.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .id1:hover{
+    background: url("/static/button/07.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .id2:hover{
+    background: url("/static/button/08.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .id3:hover{
+    background: url("/static/button/09.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .id4:hover{
+    background: url("/static/button/10.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
   .mobile-item {
     flex: 1;
     box-sizing: border-box;
     position: relative;
-    padding: 1.5%;
+    padding: 2.6%;
   }
 
   .line {
@@ -173,14 +237,12 @@
      }
 
   .head-aside {
-    height: 65px;
     width: 100%;
     background: aliceblue;
     position: relative;
   }
 
   .mobile-head-aside {
-    height: 5vh;
     width: 100%;
     background: aliceblue;
     position: relative;
@@ -222,9 +284,9 @@
 
   .mobile-title {
     flex: 1;
-    font-size: 13px;
-    line-height: 21px;
-    padding: 1vh 3vw;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    padding: 1vh 3.9vw;
     overflow: hidden;
     position: relative;
 
@@ -244,9 +306,9 @@
 
   .title {
     flex: 1;
-    font-size: 20px;
-    line-height: 36px;
-    padding: 15px 40px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 1.2rem 1.8rem;
     overflow: hidden;
     position: relative;
 

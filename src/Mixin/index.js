@@ -6,6 +6,7 @@ export default {
   },
   methods:{
     jump(src){
+      console.log(src)
       window.location.href=src;
     }
   },

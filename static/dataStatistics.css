@@ -1,21 +1,26 @@
 @charset "utf-8"; /* CSS Document */
 body{
   overflow-x: hidden;
+  font-size: 62.5%;
 }
 .r-head{
   text-align:center !important;
   color: #010001 !important;
   font-weight: bold !important;
-  font-size: 16px !important;
-  height: 25px !important;
-  line-height: 25px !important;
+  font-size: 1rem !important;
+  /*height: 1.4rem !important;*/
+  line-height: 1.5rem !important;
   background: rgb(228,228,228) !important;
-  padding: 5px 0 !important;
+  padding: 0.3rem 0 !important;
 }
 .column-class{
   padding: 8px 0 !important;
   /*color: rgb(148,148,148) !important;*/
   border-bottom-color:  rgb(148,148,148) !important;
+}
+.column-class>.cell{
+  font-size: 0.8rem !important;
+  line-height: 1.4rem !important;
 }
 .mobile-r-head{
   text-align:center !important;
