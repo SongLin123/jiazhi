@@ -143,14 +143,18 @@
   .main-head {
     width: 100%;
     box-sizing: border-box;
-    padding: 0.6rem;
+    padding: 1.2rem 0.6rem 1.2rem 0.6rem;
     display: flex;
+    position: relative;
+    top: -3px;
   }
   .mobile-main-head {
     height: 18.3vw;
     width: 100%;
     box-sizing: border-box;
     display: flex;
+    position: relative;
+    top: -2px;
   }
 
   /*noinspection ALL*/
@@ -164,7 +168,8 @@
     height: 5rem;
   }
   .mobile-item-button{
-    height: 3rem;
+    height: 100%;
+    width: 100%;
   }
   .id0{
     background: url("/static/button/01.png") no-repeat;
@@ -226,25 +231,24 @@
 
   .line {
        display: inline-block;
-       height: 56px;
+       height: 36px;
        width: 1px;
-       background: #010001;
+       background: rgb(177, 177, 177);
        position: absolute;
-       right: 0;
+       right: -1px;
        top: 50%;
-       margin-top: -28px;
-       transform: scaleX(0.5);
+       margin-top: -18px;
+       /*transform: scaleX(0.5);*/
      }
 
   .head-aside {
     width: 100%;
-    background: aliceblue;
+    /*background: aliceblue;*/
     position: relative;
   }
 
   .mobile-head-aside {
     width: 100%;
-    background: aliceblue;
     position: relative;
   }
 
@@ -257,15 +261,15 @@
   }
 
   .first {
-    height: 5px;
-    transform: scaleY(0.5);
-    top: 0;
+    height: 4px;
+    /*transform: scaleY(0.5);*/
+    top: -4px;
   }
 
   .sec {
     height: 2px;
-    transform: scaleY(0.5);
-    bottom: 0;
+    /*transform: scaleY(0.5);*/
+    bottom: -2px;
   }
 
   .title-container {
@@ -280,13 +284,14 @@
     height: 100%;
     box-sizing: border-box;
     display: flex;
+    vertical-align: middle;
   }
 
   .mobile-title {
     flex: 1;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    padding: 1vh 3.9vw;
+    font-size: 0.85rem;
+    /*line-height: 1rem;*/
+    padding: 1vh 0.57rem;
     overflow: hidden;
     position: relative;
 

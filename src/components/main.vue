@@ -9,7 +9,7 @@
     </el-row>
     </el-header>
 
-    <el-main v-if="agent==='pc'" style="padding:0;">
+    <el-main v-if="agent==='pc'" style="padding:0;position: relative;top: -1px">
       <el-row style="width: 75%;margin: 0 auto">
         <main-head></main-head>
 
@@ -17,7 +17,7 @@
         <table-body></table-body>
       </el-row>
     </el-main>
-    <el-main v-if="agent!=='pc'" style="padding:0 4.3%;">
+    <el-main v-if="agent!=='pc'" style="padding:0 4.3%;position: relative;top: -1px">
       <el-row style="width: 100%;margin: 0 auto;">
         <main-head></main-head>
 

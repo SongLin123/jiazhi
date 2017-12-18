@@ -20,7 +20,8 @@
           <el-table
 
             :header-cell-class-name="'r-head'"
-
+            highlight-current-row
+            @current-change="handleCurrentChange"
             :data="table.data"
             style="width: 100%">
             <el-table-column
@@ -28,13 +29,19 @@
               label="产品名称"
               class-name="column-class"
               >
+              <template slot-scope="scope">
+                <el-col> {{ scope.row.name }}{{scope.row.miniTitle?' / ':' ' }} <span style="color: #E60012">{{ scope.row.miniTitle }}</span></el-col>
+
+              </template>
             </el-table-column>
             <el-table-column
               prop="apply"
               label="适    用"
               class-name="column-class"
+              min-width="125"
               >
               <template slot-scope="scope">
+
                 {{ scope.row.apply}}
                 {{ scope.row.apply2?'，'+scope.row.apply2:''}}
               </template>
@@ -42,6 +49,7 @@
             <el-table-column
               prop="config"
               class-name="column-class"
+              min-width="110"
               label="配     置">
               <template slot-scope="scope">
                 {{ scope.row.config}}
@@ -51,10 +59,11 @@
             <el-table-column
               prop="price"
               class-name="column-class"
+              width="120"
               label="价    格">
               <template slot-scope="scope">
-                {{ scope.row.price}}
-                <span  v-html="scope.row.unit.indexOf('月')>0?'元/月':'元/年'"></span>
+                <span style="color: #E60012">{{ scope.row.price}}</span>
+                <span  v-html="scope.row.unit.indexOf('月')>0?'元/<span style=\'color:#E60012\'>月</span>':'元/年'"></span>
               </template>
             </el-table-column>
           </el-table>
@@ -97,7 +106,8 @@
           <el-table
 
             :header-cell-class-name="'mobile-r-head'"
-
+            highlight-current-row
+            @current-change="handleCurrentChange"
             :data="table.data"
             style="width: 100%">
             <el-table-column
@@ -106,7 +116,7 @@
               class-name="mobile-column-class"
               >
               <template slot-scope="scope">
-                <el-col style="font-size: 10px;line-height: 10px"> {{ scope.row.name }}<br><span style="color: rgb(234,85,20)">{{ scope.row.miniTitle }}</span></el-col>
+                <el-col style="font-size: 10px;line-height: 14px"> {{ scope.row.name }}<br><span style="color: #E60012">{{ scope.row.miniTitle }}</span></el-col>
 
               </template>
             </el-table-column>
@@ -117,7 +127,7 @@
               class-name="mobile-column-class"
               >
               <template slot-scope="scope">
-                <el-col style="font-size: 10px;line-height: 10px"> {{ scope.row.apply }}<br><span>{{ scope.row.apply2 }}</span></el-col>
+                <el-col style="font-size: 10px;line-height: 14px"> {{ scope.row.apply }}<br><span>{{ scope.row.apply2 }}</span></el-col>
 
               </template>
             </el-table-column>
@@ -185,6 +195,7 @@
             title: '中国电信 CHINA TELECOM',
             data: [
               {
+                alink:'http://www.cloud-open.cn/index.php?c=article&a=type&tid=368&id=1042',
                 name: '旺铺通',
                 apply: '商铺、初创企业类用户',
                 config: '下行50M，上行4M',
@@ -192,15 +203,17 @@
                 price: '1900',
                 unit:'元/年'
               }, {
+                alink:'http://www.cloud-open.cn/index.php?c=article&a=type&tid=368&id=1041',
                 name: '商务专线',
                 miniTitle:'限时0元享',
-                apply: '网页浏览、',
+                apply: '网页浏览',
                 apply2: '邮件收发等',
                 config: '50M上下行对称',
                 config2: '动态IP',
                 price: '6800',
                 unit:'元/年'
               }, {
+                alink:'http://www.cloud-open.cn/index.php?c=article&a=type&tid=368&id=1040',
                 name: '精品专线',
                 miniTitle:'首月免租',
                 apply: 'OA/ERP/SAP',
@@ -210,6 +223,7 @@
                 price: '33880',
                 unit:'元/年'
               }, {
+                alink:'http://www.cloud-open.cn/index.php?c=article&a=type&tid=368&id=1039',
                 name: 'IPMAN',
                 miniTitle:'首月免租',
                 apply: '多IP、大型服务器',
@@ -217,7 +231,7 @@
                 config: '10M上下行对称',
                 config2: '一个固定IP',
                 price: '3729',
-                unit:'元/<span style="color: rgb(234,85,20)">月</span>'
+                unit:'元/<span style="color: #E60012">月</span>'
               },
             ]
           },
@@ -233,6 +247,7 @@
             title: '中国联通 CHINA UNICOM',
             data: [
               {
+                alink:'http://www.cloud-open.cn/index.php?c=article&a=type&tid=370&id=1081',
                 name: '沃·SOHO',
                 apply: '商铺、初创企业',
                 config: '40M上下行对称',
@@ -240,14 +255,16 @@
                 price: '2400',
                 unit:'元/年'
               }, {
+                alink:'http://www.cloud-open.cn/index.php?c=article&a=type&tid=370&id=1080',
                 name: '沃·极速',
-                apply: '网页浏览、',
+                apply: '网页浏览',
                 apply2: '邮件收发等',
                 config: '60M上下行对称',
                 config2: '动态IP',
                 price: '5700',
                 unit:'元/年'
               }, {
+                alink:'http://www.cloud-open.cn/index.php?c=article&a=type&tid=370&id=1079',
                 name: '沃·动车',
                 apply: 'OA/ERP/SAP',
                 apply2: '视频会议等场景',
@@ -256,13 +273,14 @@
                 price: '33400',
                 unit:'元/年'
               }, {
+                alink:'http://www.cloud-open.cn/index.php?c=article&a=type&tid=370&id=1078',
                 name: '沃·专线',
                 apply: '多IP、大型服务器',
                 apply2: '集群搭建场景',
                 config: '10M上下行对称',
                 config2: '一个固定IP',
                 price: '5940',
-                unit:'元/<span style="color: rgb(234,85,20)"">月</span>'
+                unit:'元/<span style="color: #E60012"">月</span>'
               },
             ]
           },
@@ -280,6 +298,7 @@
             title: '中国移动 CHINA MOBILE',
             data: [
               {
+                alink:'http://www.cloud-open.cn/index.php?c=article&a=type&tid=369&id=1133',
                 name: '光网宽带',
                 apply: '商铺、初创企业',
                 config: '20M上下行对称',
@@ -287,14 +306,16 @@
                 price: '2980',
                 unit:'元/年'
               }, {
+                alink:'http://www.cloud-open.cn/index.php?c=article&a=type&tid=369&id=1133',
                 name: '光网宽带',
-                apply: '网页浏览、',
+                apply: '网页浏览',
                 apply2: '邮件收发等',
                 config: '50M上下行对称',
                 config2: '动态IP',
                 price: '3980',
                 unit:'元/年'
               }, {
+                alink:'http://www.cloud-open.cn/index.php?c=article&a=type&tid=369&id=1133',
                 name: '光网宽带',
                 apply: 'OA/ERP/SAP',
                 apply2: '视频会议等场景',
@@ -303,13 +324,14 @@
                 price: '4980',
                 unit:'元/年'
               }, {
+                alink:'http://www.cloud-open.cn/index.php?c=article&a=type&tid=369&id=1082',
                 name: 'CMNET',
                 apply: '多IP、大型服务器',
                 apply2: '集群搭建场景',
                 config: '50M上下行对称',
                 config2: '一个固定IP',
                 price: '1500',
-                unit:'元/<span style="color: rgb(234,85,20)"">月</span>'
+                unit:'元/<span style="color: #E60012"">月</span>'
               },
             ]
           },
@@ -325,6 +347,7 @@
             title: '鹏博士宽带 DR.PGROUPENG',
             data: [
               {
+                alink:'http://www.cloud-open.cn/index.php?c=article&a=type&tid=428&id=1126 ',
                 name: '云@商城',
                 apply: '商铺、初创企业',
                 config: '50M上下行对称',
@@ -332,14 +355,16 @@
                 price: '4000',
                 unit:'元/年'
               }, {
+                alink:'http://www.cloud-open.cn/index.php?c=article&a=type&tid=428&id=1126 ',
                 name: '云@商城',
-                apply: '网页浏览、',
+                apply: '网页浏览',
                 apply2: '邮件收发等',
                 config: '100M上下行对称',
                 config2: '动态IP，楼内接入',
                 price: '6000',
                 unit:'元/年'
               }, {
+                alink:'http://www.cloud-open.cn/index.php?c=article&a=type&tid=428&id=1125',
                 name: '云@快线',
                 apply: 'OA/ERP/SAP',
                 apply2: '视频会议等场景',
@@ -348,6 +373,7 @@
                 price: '6000',
                 unit:'元/年'
               }, {
+              alink:'http://www.cloud-open.cn/index.php?c=article&a=type&tid=428&id=1124',
                 name: '云@动车',
                 apply: '多IP、大型服务器',
                 apply2: '集群搭建场景',
@@ -370,6 +396,7 @@
             title: '嘉值云光纤 VAS Technology',
             data: [
               {
+                alink:' http://www.cloud-open.cn/index.php?c=article&a=type&tid=429id=1127',
                 name: '云光纤',
                 apply: 'OA/ERP/SAP',
                 apply2: '视频会议等场景',
@@ -378,6 +405,7 @@
                 price: '21000',
                 unit:'元/年'
               }, {
+                alink:' http://www.cloud-open.cn/index.php?c=article&a=type&tid=429id=1127',
                 name: '云光纤B',
                 apply: '多IP、大型服务器',
                 apply2: '集群搭建场景',
@@ -393,6 +421,10 @@
       }
     },
     methods:{
+      handleCurrentChange(row){
+        console.log(row.alink)
+        this.open(row.alink)
+      },
       open(src){
         window.open(src)
       },
@@ -427,7 +459,7 @@
   }
   .mobile-table-item {
     height: auto;
-    padding: 1vh 0 0 0;
+    padding: 2.3333333vh 0 0 0;
   }
 
   .desCont {
@@ -474,7 +506,7 @@
     position: relative;
   }
   .calling{
-    border: 1px solid rgb(122,146,253);
+    border: 2px solid rgb(122,146,253);
     background: rgb(242,242,242);
     height: 40px;
     line-height: 40px;
@@ -490,9 +522,9 @@
     cursor: pointer;
   }
   .callCont:nth-child(2){
-    padding-right: 10px;
+    padding-right: 5px;
   }
   .callCont:nth-child(3){
-    padding-left: 10px;
+    padding-left: 5px;
   }
 </style>

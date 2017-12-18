@@ -1,4 +1,10 @@
 @charset "utf-8"; /* CSS Document */
+@font-face{
+  font-family: 'FZLTCX';
+  src : url('/static/FZLTCXHJW.ttf');
+}
+
+
 body{
   overflow-x: hidden;
   font-size: 62.5%;
@@ -17,10 +23,13 @@ body{
   padding: 8px 0 !important;
   /*color: rgb(148,148,148) !important;*/
   border-bottom-color:  rgb(148,148,148) !important;
+  font-family: 'FZLTCX' !important;
+  font-weight: bold;
+  cursor: pointer;
 }
 .column-class>.cell{
-  font-size: 0.8rem !important;
-  line-height: 1.4rem !important;
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
 }
 .mobile-r-head{
   text-align:center !important;
@@ -32,9 +41,13 @@ body{
   /*padding: 1vh 0 !important;*/
 }
 .mobile-column-class{
+  font-weight: bold;
+  font-family: 'FZLTCX' !important;
   padding: 0 0 !important;
   font-size: 8px !important;
   border-bottom-color:  rgb(148,148,148) !important;
+  text-indent: -3px !important;
+  cursor: pointer;
 }
 .mobile-column-class>.cell{
   padding: 2px !important;
