@@ -40,7 +40,7 @@
 
       <div class="title-container">
         <div class="title" v-for="(it,index) in title">
-          <span @click="jump(it.src)" :class="['word',{'active':index===0}]">{{it.name}}</span>
+          <span @click="true||jump(it.src)" :class="['word',{'active':index===0}]">{{it.name}}</span>
           <span v-if="index!==3" class="line"></span>
         </div>
       </div>
@@ -55,7 +55,7 @@
 
       <div class="mobile-title-container">
         <div class="mobile-title" v-for="(it,index) in title">
-          <span @click="jump(it.src)" :class="['word',{'active':index===0}]">{{it.name}}</span>
+          <span @click="true||jump(it.src)" :class="['word',{'active':index===0}]">{{it.name}}</span>
           <span v-if="index!==3" class="line"></span>
         </div>
       </div>
@@ -325,11 +325,11 @@
     height: 100%;
   }
 
-  .word:hover {
-    background: #010001;
-    color: white;
-    cursor: pointer;
-  }
+  /*.word:hover {*/
+    /*background: #010001;*/
+    /*color: white;*/
+    /*cursor: pointer;*/
+  /*}*/
 
   .word.active {
     background: #010001;
