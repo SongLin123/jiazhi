@@ -289,7 +289,7 @@
 
   .mobile-title {
     flex: 1;
-    font-size: 0.85rem;
+    font-size: 0.83rem;
     /*line-height: 1rem;*/
     padding: 1vh 0.57rem;
     overflow: hidden;
