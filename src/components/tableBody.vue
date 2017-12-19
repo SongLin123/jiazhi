@@ -59,7 +59,7 @@
             <el-table-column
               prop="price"
               class-name="column-class"
-              width="120"
+              min-width="90"
               label="价    格">
               <template slot-scope="scope">
                 <span style="color: #E60012">{{ scope.row.price}}</span>
@@ -68,7 +68,7 @@
             </el-table-column>
           </el-table>
           <el-col :span="24" class="phone">
-            <span  class="line" style=" height: 2px;top: -1px;background: #010001;"></span>
+            <span  class="line" style=" height: 2px;top: -1px;background: rgba(1,0,1,0.47);"></span>
             <el-col :span="12" class="callCont">
               <div class="calling">
                 <i class="el-icon-phone" style="display: inline-block;width: 20px;height: 20px;border-radius: 20px;border: 1px solid rgb(218,218,218);line-height: 20px"></i>
@@ -80,7 +80,9 @@
                 <span >立即免费在线咨询</span>
               </div>
             </el-col>
-            <span  class="line" style=" height: 1px;bottom: 0;background: rgba(1,0,1,0.47);"></span>
+            <span  class="line" style=" height: 1px;bottom: 0;
+            background: rgba(1,0,1,0.47);
+"></span>
           </el-col>
 
 
@@ -155,19 +157,19 @@
             </el-table-column>
           </el-table>
           <el-col :span="24" class="mobile-phone">
-            <span  class="line" style=" height: 2px;top: -1px;background: #010001;"></span>
-            <el-col :span="16" class="callCont">
+            <span  class="line" style=" height: 1px;top: -1px;background:  rgba(1,0,1,0.47);"></span>
+            <el-col :span="24" class="callCont">
               <div class="mobile-calling">
                 <i class="el-icon-phone" style="display: inline-block;width: 20px;height: 20px;border-radius: 20px;border: 1px solid rgb(218,218,218);line-height: 20px"></i>
                 <span @click="callRing">免费咨询 400-663-1663</span>
               </div>
             </el-col>
-            <el-col :span="8" class="callCont">
-              <div class="mobile-calling" @click="open('http://p.qiao.baidu.com/cps/chat?siteId=10988132&userId=24247806 ')">
-                <span >在线咨询</span>
-              </div>
-            </el-col>
-            <span  class="line" style=" height: 1px;bottom: 0;background: rgba(1,0,1,0.47);"></span>
+            <!--<el-col :span="8" class="callCont">-->
+              <!--<div class="mobile-calling" @click="open('http://p.qiao.baidu.com/cps/chat?siteId=10988132&userId=24247806 ')">-->
+                <!--<span >在线咨询</span>-->
+              <!--</div>-->
+            <!--</el-col>-->
+            <span  class="line" style=" height: 1px;bottom: 0;background:#010001;"></span>
           </el-col>
 
 
@@ -501,8 +503,8 @@
     position: relative;
   }
   .mobile-phone{
-    height: 7vh;
-    padding: 1vh 0 2vh 0;
+    /*height: 7vh;*/
+    padding: 1.5vh 0 2.5vh 0;
     position: relative;
   }
   .calling{
@@ -521,10 +523,10 @@
     font-size: 14px;
     cursor: pointer;
   }
-  .callCont:nth-child(2){
+  .phone>.callCont:nth-child(2){
     padding-right: 5px;
   }
-  .callCont:nth-child(3){
+  .phone>.callCont:nth-child(3){
     padding-left: 5px;
   }
 </style>

@@ -4,7 +4,7 @@
 
     <el-row style="width: 100vw">
       <el-col :span="24">
-        <img :src="agent==='pc'?'static/Website_Banner_Preview.png':'static/Mobile_Banner_Preview.png'" @click="jump('http://cloud-open.cn/yunzhuji/qytx.html')" style="width: 100%;cursor: pointer" alt="">
+        <img :src="agent==='pc'?'static/Website_Banner_Preview.png':'static/Mobile_Banner_Preview.png'" @click="agent==='pc'?jump('http://cloud-open.cn/yunzhuji/qytx.html'):jump('http://cloud-open.cn/yunzhuji/new_page_1.html')" style="width: 100%;cursor: pointer" alt="">
       </el-col>
     </el-row>
     </el-header>

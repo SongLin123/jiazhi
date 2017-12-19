@@ -19,14 +19,9 @@
     <!--mobile-->
     <div class="mobile-main-head hidden-sm-and-up">
       <div v-for="(item,index) in banner" class="mobile-item">
-        <!--<img style="cursor: pointer;width: 100%;height: 100%"-->
-             <!--@mousemove="hovering(index+1,$event)" @mouseleave="leaveing(index+1,$event)"-->
-             <!--@click="index===0?0:jump(item.src)"-->
-             <!--:src="'static/button/0'+(index+1)+'.png'"-->
-             <!--alt="">-->
+
         <div class="mobile-item-button" :class="'id'+index" style="cursor: pointer;"
-             @click="index===0?0:jump(item.src)"
-        >
+             @click="index===0?0:jump(item.src)">
 
         </div>
       </div>
